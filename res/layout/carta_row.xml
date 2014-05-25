@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:id="@+id/row_background" android:paddingBottom="10dp" android:paddingLeft="5dp">
+
+    <TextView
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:id="@+id/row_number"
+        android:textSize="15sp"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/default_row_number"
+        android:textColor="#000000"
+        android:gravity="center|center_vertical"
+        android:background="@drawable/row_number"
+        android:layout_centerVertical="true" android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/row_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textSize="25sp"
+        android:fontFamily="sans-serif-light"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="#000000"
+        android:focusable="false" 
+        android:clickable="false"
+        android:textIsSelectable="false"
+        android:text="@string/default_row_number"
+        android:gravity="center_vertical"
+        android:layout_alignBottom="@+id/row_number" android:layout_toRightOf="@+id/row_number"/>
+
+</RelativeLayout>

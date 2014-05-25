@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Application -->
+    <string name="app_name">\'Splay</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Action Bar -->
+    <string name="new_message">New Message</string>
+    <string name="drawer_opened">Opened</string>
+    <string name="drawer_closed">Closed</string>
+
+    <!-- SplashActivity -->
+    <string name="splay">Just \'Splay It</string>
+
+    <!-- CreateMessageActivity -->
+    <string name="title_activity_new_message">Step 1: Make A s\'Splay</string>
+    <string name="first_question">Message:</string>
+    <string name="hint">To Be Or Not To Be</string>
+    <string name="second_question">Pick a Color:</string>
+    <string name="red">Red</string>
+    <string name="yellow">Yellow</string>
+    <string name="orange">Orange</string>
+    <string name="blue">Blue</string>
+    <string name="green">Green</string>
+    <string name="hello_world">Hello world!</string>
+
+    <!-- PreviewActivity -->
+    <string name="title_activity_preview">Step 2: Preview</string>
+
+    <!-- ImageDisplayActivity -->
+    <string name="title_activity_image_view">Image</string>
+
+    <!-- TextDisplayActivity -->
+    <string name="title_activity_view_carta">\'Splay it</string>
+
+    <!-- Image Content Description -->
+    <string name="image_description">A wonderful day to you!</string>
+    <string name="title_activity_custom_color">CustomColorActivity</string>
+
+    <!-- Temp Fragment -->
+    <string name="temp_message">This collection isn\'t ready yet. We\'ll get to it soon.</string>
+    <string name="temp_title">Woops!</string>
+
+    <!-- UPDATED FORM CONTENT -->
+    <string name="text_hint">Say Something Snappy</string>
+    <string name="header_text_color">Text Color:</string>
+    <string name="header_bg_color">Background Color:</string>
+    <string name="form_header_text">Text:</string>
+    <string name="preview_button">\'Splay It</string>
+    <string name="save_button">Save It</string>
+    <string name="edit_button">Save</string>
+    <string name="cancel_button">Cancel</string>
+
+    <string-array name="color_array">
+        <item>Blue</item>
+        <item>Green</item>
+        <item>Orange</item>
+        <item>Red</item>
+        <item>Yellow</item>
+    </string-array>
+
+    <string-array name="text_array">
+        <item>White</item>
+        <item>Black</item>
+    </string-array>
+
+    <string name="title_activity_text_display_view_pager">\'Splay It</string>
+    <string name="title_activity_text_pager_fragment">TextPagerFragment</string>
+    <string name="title_activity_edit">Edit</string>
+
+    <string name="default_row_number">#</string>
+</resources>

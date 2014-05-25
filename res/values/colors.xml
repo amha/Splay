@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   	<color name="carta_red">#f62b19</color>
+	<color name="carta_yellow">#d2ea32</color>
+	<color name="carta_blue">#288df6</color>
+	<color name="carta_orange">#eda321</color>
+	<color name="carta_green">#23d36d</color>
+	
+	<!-- Custom Colors -->
+	<color name="grey">#f6f6f6</color>
+	<color name="dark_grey">#555555</color>
+	
+	<!--  -->
+	<color name="whitish">#f8f9e9</color>
+	<color name="greenish">#cfe0cd</color>
+	
+	<!-- Splash Screen -->
+	<color name="splash_bg">#32aa3a</color>
+</resources>
