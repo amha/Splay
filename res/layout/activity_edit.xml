@@ -16,15 +16,76 @@
             android:paddingTop="12dp"
             android:text="@string/header_bg_color" />
 
-    <Spinner
+    <RadioGroup android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/radioGroupEdit"
+                android:paddingTop="5dp"
+                android:gravity="center_horizontal"
+                android:layout_below="@+id/editBgValue"
+                android:layout_centerHorizontal="true">
+
+        <RadioButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:id="@+id/redRadioButtonEdit"
+                android:layout_below="@+id/textView"
+                android:layout_alignParentLeft="true"
+                android:button="@null"
+                android:background="@drawable/red_radio"
+                android:checked="true" />
+
+        <RadioButton
+                android:id="@+id/blueRadioButtonEdit"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/textView"
+                android:layout_alignParentLeft="true"
+                android:button="@null"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/blue_radio" />
+
+        <RadioButton
+                android:id="@+id/yellowRadioButtonEdit"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/textView"
+                android:layout_alignParentLeft="true"
+                android:button="@null"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/yellow_radio" />
+
+        <RadioButton
+                android:id="@+id/orangeRadioButtonEdit"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/textView"
+                android:layout_alignParentLeft="true"
+                android:button="@null"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/orange_radio" />
+
+        <RadioButton
+                android:id="@+id/greenRadioButtonEdit"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/textView"
+                android:layout_alignParentLeft="true"
+                android:button="@null"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/green_radio" />
+
+    </RadioGroup>
+
+    <!--<Spinner
             android:id="@+id/editColorSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/editBgValue"/>
+            android:layout_below="@id/editBgValue"/>-->
 
     <TextView
             android:id="@+id/formHeaderText"
-            android:layout_below="@+id/editColorSpinner"
+            android:layout_below="@+id/radioGroupEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -40,7 +101,8 @@
             android:inputType="textCapCharacters"
             android:hint="@string/text_hint"
             android:paddingTop="5dp"
-            android:focusableInTouchMode="true">
+            android:focusableInTouchMode="true"
+            android:windowSoftInputMode="stateVisible">
         <requestFocus />
     </EditText>
 

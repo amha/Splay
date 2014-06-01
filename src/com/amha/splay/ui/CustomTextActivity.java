@@ -10,24 +10,48 @@ package com.amha.splay.ui;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.amha.splay.R;
+import com.amha.splay.TextDisplayViewPager;
+import com.amha.splay.model.SplayDBManager;
 import com.amha.splay.ui.FormFragment.OnFormSubmittedListener;
 
 
 /**
- * Form where users create Splay's
+ * Form where users create Splays
  *
  */
 public class CustomTextActivity extends Activity implements OnFormSubmittedListener {
 
-	@Override
+    private SplayDBManager dbManager;
+    private String message;
+    private int userColor;
+    private int textColor;
+
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_create_splay);		
+		setContentView(R.layout.activity_create_splay);
+
+        EditText mEditText = (EditText)findViewById(R.id.form_view_edit_text);
+
+        //Submit form when user hits "Done" softkey
+        mEditText.setOnEditorActionListener(new EditText.OnEditorActionListener(){
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if(actionId == EditorInfo.IME_ACTION_DONE){
+                    onFormSubmit(v);
+                }
+
+                return false;
+            }
+        });
 		
 	}
 
@@ -55,11 +79,13 @@ public class CustomTextActivity extends Activity implements OnFormSubmittedListe
 			String userText = userData[0];
 			String userColor = userData[1];
 
-			Intent mIntent = new Intent(this, PreviewActivity.class);		
-			mIntent.putExtra("TEXT", userText);
-			mIntent.putExtra("COLOR", userColor);
+			saveMessage(userText, userColor);
+            Toast.makeText(this, "You made a 'Splay! Awesome.", Toast.LENGTH_SHORT).show();
 
-            startActivity(mIntent);
+            //Lanuch new 'splay
+            Intent intent = new Intent(this, TextDisplayViewPager.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
 
 		}
 	}
@@ -68,4 +94,42 @@ public class CustomTextActivity extends Activity implements OnFormSubmittedListe
         finish();
     }
 
+    /**
+     * Creates a new database record based on the users input and
+     * calls the CartaListActivity.
+     *
+     */
+    public void saveMessage(String message, String color){
+        dbManager = new SplayDBManager(this);
+        dbManager.open();
+        dbManager.createMessage(message, convertBGColor(color));
+        dbManager.close();
+    }
+
+    /**
+     * Converts string that represents color into it's integer equivalent.
+     *
+     */
+    public static int convertBGColor(String color){
+
+        if(color.equals("Blue")){
+            return 0xff75a3ff;
+        }
+        else if(color.equals("Orange")){
+            return 0xffeda321;
+        }
+        else if(color.equals("Red")){
+            return 0xffd73232;
+        }
+        else if(color.equals("Yellow")){
+            return 0xffd2ea32;
+        }
+        else if(color.equals("Green")){
+            return 0xff23d36d;
+        }
+        else if(color.equals("Black")){
+            return 0xff000000;
+        }
+        return 0xffffffff;
+    }
 }

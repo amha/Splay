@@ -1,13 +1,13 @@
 package com.amha.splay.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SplayDBManager {
 	//SQLite references.
@@ -65,7 +65,7 @@ public class SplayDBManager {
 		//Get column id
 		long insertId = database.insert(SplaySQLiteHelper.MESSAGES_TABLE, null, values);
 
-		//Retrieving the db_row that was created  and converting to an object
+		//Retrieving the db_row that was created and converting to an object
 		Cursor cursor = database.query(SplaySQLiteHelper.MESSAGES_TABLE, allMessagesColumns, 
 				SplaySQLiteHelper.COLUMN_ID + " = " + insertId, null, null, null, null);
 		cursor.moveToFirst();
@@ -74,8 +74,16 @@ public class SplayDBManager {
 		return newMessage;
 	}
 	
-	public void deleteMessage(Text message){
-		//TODO:	
+	public boolean deleteMessage(int recordNumber){
+        int result = database.delete(SplaySQLiteHelper.MESSAGES_TABLE,
+                SplaySQLiteHelper.COLUMN_ID + "=" + recordNumber,
+                null);
+        if(result == 1){
+            return true;
+        }
+        else {
+            return false;
+        }
 	}
 	
 	/*
@@ -139,7 +147,7 @@ public class SplayDBManager {
 		createSmile("sour", Color.CYAN);
 		createSmile("sad", Color.MAGENTA);
 		createSmile("random", Color.YELLOW);
-		*/
+
 		
 		addText(SplaySQLiteHelper.POSITIVE_TABLE, "Good Vibes Only", 0xfff62b19);
 		addText(SplaySQLiteHelper.POSITIVE_TABLE, "Never Give Up", 0xfff62b19);
@@ -148,11 +156,13 @@ public class SplayDBManager {
 		addText(SplaySQLiteHelper.POSITIVE_TABLE, "Thank You", 0xfff62b19);
 		addText(SplaySQLiteHelper.POSITIVE_TABLE, "Keep Going", 0xfff62b19);
 
-		addText(SplaySQLiteHelper.NET_TABLE, "=)", 0xff288df6);
-		addText(SplaySQLiteHelper.NET_TABLE, "=(", 0xff288df6);
-		addText(SplaySQLiteHelper.NET_TABLE, ";-)", 0xff288df6);
-		addText(SplaySQLiteHelper.NET_TABLE, "8-]", 0xff288df6);
-		addText(SplaySQLiteHelper.NET_TABLE, "=P", 0xff288df6);
+		addText(SplaySQLiteHelper.MESSAGES_TABLE, "=)", 0xff288df6);
+		addText(SplaySQLiteHelper.MESSAGES_TABLE, "=(", 0xff288df6);
+		addText(SplaySQLiteHelper.MESSAGES_TABLE, ";-)", 0xff288df6);
+		addText(SplaySQLiteHelper.MESSAGES_TABLE, "8-]", 0xff288df6);
+		addText(SplaySQLiteHelper.MESSAGES_TABLE, "=P", 0xff288df6);
+         */
+
 	}
 	
 	

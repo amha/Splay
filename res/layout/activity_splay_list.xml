@@ -10,6 +10,7 @@
     android:layout_height="match_parent" >
  </FrameLayout>
 
+ <!--
  <ListView 
      android:id="@+id/navigation_drawer"
      android:layout_width="260dp"
@@ -20,5 +21,6 @@
      android:dividerHeight="10dp"
      android:background="#f3f3f3"
      android:paddingLeft="0dp"/>
+  -->
      
 </android.support.v4.widget.DrawerLayout>

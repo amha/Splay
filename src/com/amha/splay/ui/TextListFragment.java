@@ -24,10 +24,11 @@ public class TextListFragment extends ListFragment {
 		dbManager = new SplayDBManager(getActivity());
         dbManager.open();
 
-		Bundle args = getArguments();
-		Cursor cursor = null;
+		//Bundle args = getArguments();
+		Cursor cursor = dbManager.getAllMessagesAsCursor();
 		TextCursorAdapter adapter = null;
-		
+
+        /*
 		if(args != null){
 			String userInput1 = getArguments().getString("TABLE");
 						
@@ -39,7 +40,7 @@ public class TextListFragment extends ListFragment {
 			}
 		} else{
 			cursor = dbManager.getAllMessagesAsCursor();
-		}	
+		}*/
         
 		ListView listUI = (ListView)inflater.inflate(R.layout.fragment_carta_list, container, false);	
 	    adapter = new TextCursorAdapter(getActivity().getApplicationContext(), cursor, 0);

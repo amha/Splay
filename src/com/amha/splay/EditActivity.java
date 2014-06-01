@@ -7,11 +7,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 import com.amha.splay.model.SplayDBManager;
-import com.amha.splay.ui.PreviewActivity;
 
 
 public class EditActivity extends Activity {
@@ -19,6 +18,7 @@ public class EditActivity extends Activity {
     private SplayDBManager dbManager;
     private int recordID;
     private int currentPage;
+    private RadioGroup mRadios;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,15 +39,8 @@ public class EditActivity extends Activity {
         editText.setText(c.getString(1));
         editText.setSelection(c.getString(1).length());
 
-        //Populate spinner values
-        ArrayAdapter<CharSequence> bgColorAdapter =
-                ArrayAdapter.createFromResource(this, R.array.color_array, android.R.layout.simple_spinner_item);
-        bgColorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        //Set spinner value to DB color value
-        Spinner mSpinner = (Spinner)findViewById(R.id.editColorSpinner);
-        mSpinner.setAdapter(bgColorAdapter);
-        mSpinner.setSelection(bgColorAsString(c.getInt(2)));
+        mRadios = (RadioGroup)findViewById(R.id.radioGroupEdit);
+        mRadios.check(bgColorAsString(c.getInt(2)));
 
     }
 
@@ -74,12 +67,19 @@ public class EditActivity extends Activity {
 
     public void onEditRecord(View view){
         //Get Form Values
-        Spinner mSpinner = (Spinner)findViewById(R.id.editColorSpinner);
-        int bgColor = PreviewActivity.convertBGColor(mSpinner.getSelectedItem().toString());
+        //Spinner mSpinner = (Spinner)findViewById(R.id.editColorSpinner);
+        //int bgColor = PreviewActivity.convertBGColor(mSpinner.getSelectedItem().toString());
         EditText mEdit = (EditText)findViewById(R.id.editMessageValue);
 
         //Update Database
-        int result = dbManager.updateMessageRecord(recordID, mEdit.getText().toString(), bgColor);
+        int result =
+                dbManager.updateMessageRecord(
+                        recordID,
+                        mEdit.getText().toString(),
+                        convertIDToColor(mRadios.getCheckedRadioButtonId()));
+
+        Toast.makeText(this, "You edited your 'Splay. Cool.", Toast.LENGTH_SHORT).show();
+
 
         Intent intent = new Intent(getApplicationContext(), TextDisplayViewPager.class);
         intent.putExtra("SELECTED_LIST_ITEM", currentPage);
@@ -97,25 +97,43 @@ public class EditActivity extends Activity {
      * @return Array Adapter position.
      */
     private int bgColorAsString(int color) {
-        int id = 1;
+        int radioID = 0;
         switch (color){
             case 0xff75a3ff:    //Blue
-                id = 0;
+                radioID = R.id.blueRadioButtonEdit;
                 break;
             case 0xff23d36d:    //Green
-                id = 1;
+                radioID = R.id.greenRadioButtonEdit;
                 break;
             case 0xffeda321:    //Orange
-                id = 2;
+                radioID = R.id.orangeRadioButtonEdit;
                 break;
             case 0xffd73232:    //Red
-                id = 3;
+                radioID = R.id.redRadioButtonEdit;
                 break;
             case 0xffd2ea32:    //Yellow
-                id = 4;
+                radioID = R.id.yellowRadioButtonEdit;
                 break;
         }
-        return id;
+        return radioID;
     }
 
+
+    public int convertIDToColor(int color){
+
+        switch (color){
+            case R.id.blueRadioButtonEdit:
+                return 0xff75a3ff;
+            case R.id.orangeRadioButtonEdit:
+                return 0xffeda321;
+            case R.id.redRadioButtonEdit:
+                return 0xffd73232;
+            case R.id.yellowRadioButtonEdit:
+                return 0xffd2ea32;
+            case R.id.greenRadioButtonEdit:
+                return 0xff23d36d;
+            default:
+                return 0xffffffff;
+        }
+    }
 }

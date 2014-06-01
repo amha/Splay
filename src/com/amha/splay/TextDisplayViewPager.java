@@ -7,11 +7,12 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.amha.splay.model.SplayDBManager;
+import com.amha.splay.ui.CursorPageAdapter;
+
 //import android.view.View;
 //import android.widget.TextView;
 //import android.widget.Toast;
-import com.amha.splay.model.SplayDBManager;
-import com.amha.splay.ui.CursorPageAdapter;
 //import com.amha.splay.EditActivity;
 
 /**
@@ -39,9 +40,7 @@ public class TextDisplayViewPager extends FragmentActivity {
         dbManager = new SplayDBManager(getApplicationContext());
         dbManager.open();
 
-        //TODO: Retreiving records from a single table. Extend this for other collections.
         mCursor = dbManager.getAllMessagesAsCursor();
-
         mPageAdapter = new CursorPageAdapter(
                 getSupportFragmentManager(),
                 TextPagerFragment.class,
@@ -62,17 +61,67 @@ public class TextDisplayViewPager extends FragmentActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+        final int currentCursorRecordId = mCursor.getCount() - mPager.getCurrentItem();
+
         switch(item.getItemId()){
             case R.id.action_edit:
                 //Normalize number of DB records with number of pages
-                int currentCursorRecordId =  mCursor.getCount() - mPager.getCurrentItem();
 
                 Intent mIntent = new Intent(getApplicationContext(), EditActivity.class);
                 mIntent.putExtra("CURRENT_RECORD_NUMBER", currentCursorRecordId);
                 mIntent.putExtra("CURRENT_PAGE", mPager.getCurrentItem());
                 startActivity(mIntent);
-
                 return true;
+
+           /** case R.id.action_remove:
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setPositiveButton(R.string.postive_button, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User clicked OK button
+                        //Toast.makeText(getApplicationContext(), "Record = " + mCursor.getInt(0), Toast.LENGTH_SHORT).show();
+                        //mPageAdapter.notifyDataSetChanged();
+
+                        Log.d("AMHA", "Page Adapter Count = " + mPageAdapter.getCount());
+                        Log.d("AMHA", "Current Pager Item = " + mPager.getCurrentItem());
+                        Log.d("AMHA", "Cursor Count = " + mCursor.getCount());
+                        Log.d("AMHA", "Cursor Column ID = " + mCursor.getInt(0));
+                        Log.d("AMHA", "----");
+
+                        boolean result = false;
+
+                        if(mPager.getCurrentItem() == 0){
+                            Log.d("AMHA", "Removing the first view");
+                            result = dbManager.deleteMessage(mCursor.getInt(0));
+                            mPager.removeView(mPager.getChildAt(0));
+
+                        }
+                        else{
+                            result = dbManager.deleteMessage(mCursor.getInt(0));
+                            mPager.removeView(mPager.getChildAt(mPager.getCurrentItem()));
+                        }
+
+                        if(result == true){
+                            Log.d("AMHA", "Success! I deleted a record. ID = " + mCursor.getInt(0));
+
+                            mPageAdapter.notifyDataSetChanged();
+                            Intent mIntent = new Intent(getApplicationContext(), SplayMainActivity.class);
+                            startActivity(mIntent);
+                         }
+                        else{
+                            Log.d("AMHA", "Sad panda. I didn't delete database record.");
+                        }
+
+                    }
+                }).setNegativeButton(R.string.negative_button, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User cancelled the dialog
+                    }
+                });
+                builder.setTitle("Wanna Delete?");
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            */
             default:
                 return super.onOptionsItemSelected(item);
         }

@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
-
+import android.widget.EditText;
+import android.widget.RadioGroup;
 import com.amha.splay.R;
 
 public class FormFragment extends Fragment {
@@ -24,7 +24,7 @@ public class FormFragment extends Fragment {
 		//Inflate the layout for this fragment
 		View v = inflater.inflate(R.layout.form_view, container, false);
 		mEditText = (EditText)v.findViewById(R.id.form_view_edit_text);
-		
+
         //Initialize radio group
         mGroup = (RadioGroup)v.findViewById(R.id.radioGroup);
 		return v;
@@ -34,15 +34,12 @@ public class FormFragment extends Fragment {
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
 		try{
-
-				formListner = (OnFormSubmittedListener)activity;
+			formListner = (OnFormSubmittedListener)activity;
 
         }catch (ClassCastException e){
-
             throw new ClassCastException(
                     activity.toString() + "needs to implement OnFormListener interface.");
 		}
-		
 	}
 
 	public String[] getFormData(){
@@ -68,12 +65,12 @@ public class FormFragment extends Fragment {
                 break;
         }
         formValues[1] = selectedRadio;
-
 		return formValues;
 	}
 
-
-    //TODO: Implement Spinner Selected Listener, which would be a callback to the parent activity
+    /**
+     * This interface is implemented in CustomTextActivity.class
+     */
     public interface OnFormSubmittedListener {
         public void onFormSubmit(View v);
         public void onFormCancel(View v);

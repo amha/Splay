@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="60dp"
     android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp"
     android:id="@+id/row_background" android:paddingBottom="10dp" android:paddingLeft="5dp">
 
     <TextView
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:id="@+id/row_number"
         android:textSize="15sp"
         android:fontFamily="sans-serif-light"
@@ -37,6 +37,7 @@
         android:textIsSelectable="false"
         android:text="@string/default_row_number"
         android:gravity="center_vertical"
-        android:layout_alignBottom="@+id/row_number" android:layout_toRightOf="@+id/row_number"/>
+        android:layout_alignBottom="@+id/row_number"
+        android:layout_toRightOf="@+id/row_number"/>
 
 </RelativeLayout>

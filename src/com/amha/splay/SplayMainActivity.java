@@ -21,9 +21,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import com.amha.splay.model.SplayDBManager;
+import com.amha.splay.ui.About;
 import com.amha.splay.ui.CustomTextActivity;
 import com.amha.splay.ui.TempFragment;
 import com.amha.splay.ui.TextListFragment;
@@ -38,7 +38,7 @@ public class SplayMainActivity extends FragmentActivity{
 	//OnFormSubmittedListener formListner;
 	
 	//Temp: Move this to a string resource.
-	private final String[] navigationListValues = {"Internet Speak", "Praise", "Custom 'Splays" };
+	//private final String[] navigationListValues = {"Lol, SMH, etc..", "Thank You, Great, etc..", "Custom 'Splays" };
 	
 	private DrawerLayout drawerLayout;
 	private ActionBarDrawerToggle aBarToggle;
@@ -46,7 +46,6 @@ public class SplayMainActivity extends FragmentActivity{
 	
 	//The two fragments being created.
 	private TextListFragment cartaFragment;
-	//private SmileFragment smile;
 	private TempFragment tempFragment;
 	
 	//private CartaDBManager dbManager;
@@ -54,15 +53,17 @@ public class SplayMainActivity extends FragmentActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splay_list);
+
         
         dbManager = new SplayDBManager(this);
         dbManager.open();
     
         CreateDatabases c =  new CreateDatabases(getApplicationContext(), dbManager);
         c.execute();
-    
+
+
         //Get Drawer layout and set its background
+        /**
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);   
         navigationList = (ListView)findViewById(R.id.navigation_drawer);
 
@@ -75,10 +76,12 @@ public class SplayMainActivity extends FragmentActivity{
 
 
         navigationList.setOnItemClickListener(new DrawerItemClickListener());
-        
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setHomeButtonEnabled(true);      
-        
+
+         **/
+
+       // getActionBar().setDisplayHomeAsUpEnabled(true);
+       // getActionBar().setHomeButtonEnabled(true);
+        /**
         aBarToggle = new ActionBarDrawerToggle(
         				this, 
         				drawerLayout, 
@@ -86,25 +89,28 @@ public class SplayMainActivity extends FragmentActivity{
         				R.string.drawer_opened, 
         				R.string.drawer_closed) {
 
-        				/** Called when a drawer has settled in a completely closed state. */
+        				// Called when a drawer has settled in a completely closed state.
             			public void onDrawerClosed(View view) {
             				getActionBar().setTitle("Splay");
             				invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             			}
 
-            			/** Called when a drawer has settled in a completely open state. */
+            			// Called when a drawer has settled in a completely open state.
             			public void onDrawerOpened(View drawerView) {
             				getActionBar().setTitle("Splay Categories:");
             				invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             			}
         			};
         	// Set the drawer toggle as the DrawerListener
-        drawerLayout.setDrawerListener(aBarToggle);   
+        drawerLayout.setDrawerListener(aBarToggle);
+                */
         
-        //Temp: Update this with a more suitable default value.
+        //On first run, create the list fragment
         if (savedInstanceState == null) {
             selectItem(99);
-        }                     
+        }
+
+        setContentView(R.layout.activity_splay_list);
     }
 
     @Override
@@ -117,17 +123,26 @@ public class SplayMainActivity extends FragmentActivity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
 
+        /**
         if (aBarToggle.onOptionsItemSelected(item)) {
             return true;
         }
- 
-    	 //Click handler that responds to user action.
+        */
+
+        Intent mIntent;
+
+        //Click handler that responds to user action.
     	switch (item.getItemId()){
-    		case R.id.action_new:
-    			//Create new Carta by starting CreateCartaActivity
-    			Intent mIntent = new Intent(this, CustomTextActivity.class);
+
+            case R.id.action_new:
+    			mIntent = new Intent(this, CustomTextActivity.class);
     			startActivity(mIntent);
     			return true;
+
+            case R.id.action_about:
+                mIntent = new Intent(this, About.class);
+                startActivity(mIntent);
+                return true;
 
             default:
     			//TODO: Add other application actions.
@@ -140,24 +155,31 @@ public class SplayMainActivity extends FragmentActivity{
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         // Sync the toggle state after onRestoreInstanceState has occurred.
-        aBarToggle.syncState();
+        //aBarToggle.syncState();
     }
     
     /* Called whenever we call invalidateOptionsMenu() */
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         // If the nav drawer is open, hide action items related to the content view
+        /**
         boolean drawerOpen = drawerLayout.isDrawerOpen(navigationList);
         menu.findItem(R.id.action_new).setVisible(!drawerOpen);
+        */
+
         return super.onPrepareOptionsMenu(menu);
+
+
     }
     
     //May have to remove this method because no config changes.
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
+        /**
         super.onConfigurationChanged(newConfig);
         // Pass any configuration change to the drawer toggles
         aBarToggle.onConfigurationChanged(newConfig);
+         */
     }
 
     /* The click listener for navigation drawer items. */
@@ -176,7 +198,6 @@ public class SplayMainActivity extends FragmentActivity{
     //Responsible for loading fragment associated with user selection
     private void selectItem(int position) {
     	
-    	//TODO: Add conditionals for other navigation items.
     	// update selected item and title, then close the drawer
     	if(position == 1){
             Bundle args = new Bundle();
@@ -214,8 +235,10 @@ public class SplayMainActivity extends FragmentActivity{
         }
         
         //setTitle(navigationListValues[position]);
+        /**
         navigationList.setItemChecked(position, true);
         drawerLayout.closeDrawer(navigationList);
+        */
     }
 
     private class CreateDatabases extends AsyncTask<Void, Void, Void> {

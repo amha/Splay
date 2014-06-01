@@ -11,12 +11,13 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
+        android:label= "@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.amha.splay.SplayMainActivity"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Holo.Light" >
+            android:theme="@android:style/Theme.Holo.Light"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,12 +27,14 @@
         <activity
             android:name="com.amha.splay.ui.CustomTextActivity"
             android:label="@string/title_activity_new_message"
-            android:theme="@android:style/Theme.Holo.Light" >
+            android:theme="@android:style/Theme.Holo.Light"
+            android:windowSoftInputMode="stateVisible"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="com.amha.splay.ui.PreviewActivity"
             android:label="@string/title_activity_preview"
-            android:noHistory="true">
+            android:noHistory="true" >
         </activity>
         <activity
             android:name="com.amha.splay.ui.TextDisplayActivity"
@@ -49,14 +52,22 @@
         <activity
             android:name="com.amha.splay.TextDisplayViewPager"
             android:label="@string/title_activity_text_display_view_pager"
-            android:parentActivityName="com.amha.splay.SplayMainActivity"
-                android:launchMode="singleTop">
+            android:launchMode="singleTop"
+            android:parentActivityName="com.amha.splay.SplayMainActivity" >
         </activity>
         <activity
-                android:name="com.amha.splay.EditActivity"
-                android:label="@string/title_activity_edit"
-                android:theme="@android:style/Theme.Holo.Light"
-                android:noHistory="true">
+            android:name="com.amha.splay.EditActivity"
+            android:label="@string/title_activity_edit"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" >
+        </activity>
+        <activity
+            android:name="com.amha.splay.ui.About"
+            android:label="@string/title_activity_about"
+            android:theme="@android:style/Theme.Holo.Light"
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.amha.splay.SplayMainActivity" >
         </activity>
     </application>
 

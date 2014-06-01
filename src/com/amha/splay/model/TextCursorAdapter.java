@@ -45,19 +45,11 @@ public class TextCursorAdapter extends CursorAdapter {
         TextView rowNumber = (TextView)view.findViewById(R.id.row_number);
         GradientDrawable mBackground =  (GradientDrawable)rowNumber.getBackground();
 
-        rowNumber.setText(cursor.getInt(0) + "");
         mBackground.setColor(Color.parseColor(colorAsString));
-
 
 		//Get Text
 		TextView message = (TextView)view.findViewById(R.id.row_text);
 		message.setText(cursor.getString(1));
-
-
-
-        //Add Color to layout
-        //RelativeLayout layout = (RelativeLayout)view.findViewById(R.id.row_background);
-        //layout.setBackgroundColor(Color.parseColor(colorAsString));
 
 	}	
 	

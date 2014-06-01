@@ -38,7 +38,7 @@ public class SplaySQLiteHelper extends SQLiteOpenHelper{
 	//Table creation statements.
 	private static final String CREATE_MESSAGE_TABLE = "CREATE TABLE "
 			+ MESSAGES_TABLE + " ( " + COLUMN_ID
-			+ " INTEGER PRIMARY KEY autoincrement, " 
+			+ " INTEGER PRIMARY KEY autoincrement not null, "
 			+ COLUMN_MESSAGE + " text not null, " 
 			+ COLUMN_BG_COLOR + " INTEGER)";
 
