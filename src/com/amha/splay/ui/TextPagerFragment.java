@@ -1,4 +1,4 @@
-package com.amha.splay;
+package com.amha.splay.ui;
 
 import android.app.ActionBar;
 //import android.graphics.Color;
@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import com.amha.splay.R;
+
 /**
  * Fragment that displays the contents of 'Splay Text objects.
  * 
@@ -60,13 +62,6 @@ public class TextPagerFragment extends Fragment {
                 }
             }
         });
-
         return v;
 	}
-
-
-	public TextPagerFragment newFragment(){
-		return new TextPagerFragment();
-	}
-	
 }

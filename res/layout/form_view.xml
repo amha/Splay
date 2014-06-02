@@ -90,7 +90,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10" 
-        android:inputType="text"
+        android:inputType="textCapSentences"
         android:hint="@string/text_hint"
         android:paddingTop="5dp"
         android:focusableInTouchMode="true"

@@ -1,4 +1,4 @@
-package com.amha.splay;
+package com.amha.splay.ui;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -7,13 +7,10 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.amha.splay.EditActivity;
+import com.amha.splay.R;
+import com.amha.splay.model.CursorPageAdapter;
 import com.amha.splay.model.SplayDBManager;
-import com.amha.splay.ui.CursorPageAdapter;
-
-//import android.view.View;
-//import android.widget.TextView;
-//import android.widget.Toast;
-//import com.amha.splay.EditActivity;
 
 /**
  * Activity that displays a Splay collection within a view pager.
@@ -23,7 +20,6 @@ import com.amha.splay.ui.CursorPageAdapter;
 public class TextDisplayViewPager extends FragmentActivity {
 
 	private CursorPageAdapter mPageAdapter;
-	//private TextPagerFragment frag;
 	private SplayDBManager dbManager;
     private ViewPager mPager;
     private Cursor mCursor;
@@ -125,7 +121,5 @@ public class TextDisplayViewPager extends FragmentActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-
     }
-
 }

@@ -46,7 +46,7 @@
             android:label="@string/title_activity_custom_color" >
         </activity>
         <activity
-            android:name="com.amha.splay.TextDisplayViewPager"
+            android:name=".ui.TextDisplayViewPager"
             android:label="@string/title_activity_text_display_view_pager" >
         </activity>
     </application>

@@ -1,9 +1,17 @@
 /*
- * Copyright (C) 2013 Amha Mogus
- * 
- * Licensed under my own imagination, for which monetary profit or self-aggrandizement
- * undermine the quality and intention of the authors purpose.
- * 
+ * Copyright (C) 2014 Amha Mogus amha.mogus@gmail.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.amha.splay.ui;
 
@@ -18,21 +26,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.amha.splay.R;
-import com.amha.splay.TextDisplayViewPager;
 import com.amha.splay.model.SplayDBManager;
 import com.amha.splay.ui.FormFragment.OnFormSubmittedListener;
 
-
 /**
- * Form where users create Splays
+ * Displays a form that is used to create a slay message.
  *
  */
 public class CustomTextActivity extends Activity implements OnFormSubmittedListener {
 
+    /**
+     * This field should be made private, so it is hidden from the SDK.
+     *
+     */
     private SplayDBManager dbManager;
-    private String message;
-    private int userColor;
-    private int textColor;
 
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -95,9 +102,10 @@ public class CustomTextActivity extends Activity implements OnFormSubmittedListe
     }
 
     /**
-     * Creates a new database record based on the users input and
-     * calls the CartaListActivity.
+     * Creates a new database record in the Message table based on user input.
      *
+     * @param message Text derived from user input.
+     * @param color Background color derived from radio button selection.
      */
     public void saveMessage(String message, String color){
         dbManager = new SplayDBManager(this);
@@ -106,9 +114,12 @@ public class CustomTextActivity extends Activity implements OnFormSubmittedListe
         dbManager.close();
     }
 
+
     /**
-     * Converts string that represents color into it's integer equivalent.
+     * Converts the string name of a color into it's integer equivalent.
      *
+     * @param color Color name, such as Blue or Red.
+     * @return Hexidecimal representation of a color.
      */
     public static int convertBGColor(String color){
 

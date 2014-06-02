@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.amha.splay"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="0.1" >
 
     <uses-sdk
         android:minSdkVersion="16"
@@ -50,7 +50,7 @@
             android:label="@string/title_activity_custom_color" >
         </activity>
         <activity
-            android:name="com.amha.splay.TextDisplayViewPager"
+            android:name=".ui.TextDisplayViewPager"
             android:label="@string/title_activity_text_display_view_pager"
             android:launchMode="singleTop"
             android:parentActivityName="com.amha.splay.SplayMainActivity" >
@@ -63,7 +63,7 @@
             android:theme="@android:style/Theme.Holo.Light" >
         </activity>
         <activity
-            android:name="com.amha.splay.ui.About"
+            android:name=".ui.AboutActivity"
             android:label="@string/title_activity_about"
             android:theme="@android:style/Theme.Holo.Light"
             android:screenOrientation="portrait"

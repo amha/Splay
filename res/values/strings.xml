@@ -70,13 +70,13 @@
     <string name="title_activity_text_pager_fragment">Text Pager Fragment</string>
 
     <string name="title_activity_edit">Edit</string>
-    <string name="default_row_number"></string>
+    <string name="default_row_number"> </string>
 
     <string name="postive_button">Yes</string>
     <string name="negative_button">No</string>
 
-    <string name="title_activity_about">About \'Splay It</string>
-    <string name="about_message">You know those weird or awkward moments where you want to say something but saying it would be difficult? \n\nDon\’t say it. \'Splay It. Splay – short for display – let\’s you show your message to someone. Have fun. </string>
+    <string name="title_activity_about">About</string>
+    <string name="about_message">You know those weird or awkward moments where you want to say something but saying it would be difficult? \n\nDon\’t say it. \'Splay It. Splay – short for display – let\’s you show your message to someone. Have fun. \n-------\n\nSplay It: Version 0.1.0 (beta) </string>
     <string name="action_settings">Settings</string>
 
 </resources>

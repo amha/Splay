@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 import com.amha.splay.model.SplayDBManager;
+import com.amha.splay.ui.TextDisplayViewPager;
 
 
 public class EditActivity extends Activity {
@@ -72,7 +73,7 @@ public class EditActivity extends Activity {
         EditText mEdit = (EditText)findViewById(R.id.editMessageValue);
 
         //Update Database
-        int result =
+       // int result =
                 dbManager.updateMessageRecord(
                         recordID,
                         mEdit.getText().toString(),

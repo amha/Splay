@@ -3,14 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.amha.splay.ui.About"
-    android:padding="15dp">
+    tools:context="com.amha.splay.ui.AboutActivity"
+    android:padding="20dp">
 
     <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="About 'Splay It"
             android:textStyle="bold"
-            android:textSize="15sp"/>
+            android:textSize="20sp"/>
 
     <TextView
             android:id="@+id/about_intro"
@@ -22,12 +22,5 @@
             android:fontFamily="sans-serif-light"
             android:layout_marginTop="10dp"
             android:lineSpacingMultiplier="1.3"/>
-
-
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="Version 0.1 (Beta)"
-              android:textStyle="normal"
-              android:textSize="20sp" android:paddingTop="10dp"/>
 
 </LinearLayout>

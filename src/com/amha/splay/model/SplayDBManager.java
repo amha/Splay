@@ -1,3 +1,18 @@
+/*
+ * Copyright (C) 2014 Amha Mogus amha.mogus@gmail.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.amha.splay.model;
 
 import android.content.ContentValues;
@@ -6,13 +21,19 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class SplayDBManager {
-	//SQLite references.
-	private SQLiteDatabase database;
-	private SplaySQLiteHelper dbHelper;
+
+    /**
+     * This field should be made private, so it is hidden from the SDK.
+     *
+     */
+    private SQLiteDatabase database;
+
+    /**
+     * This field should be made private, so it is hidden from the SDK.
+     *
+     */
+    private SplaySQLiteHelper dbHelper;
 	
 	//Message Column Headers.
 	protected static String[] allMessagesColumns = { 
@@ -21,97 +42,72 @@ public class SplayDBManager {
 			SplaySQLiteHelper.COLUMN_BG_COLOR 
 			};
 
-	//Smile Column Headers.	
-	protected static String[] allSmileColumns = {
-			SplaySQLiteHelper.SMILE_COLUMN_ID,
-			SplaySQLiteHelper.SMILE_COLUMN_IMAGE_PATH,
-			SplaySQLiteHelper.SMILE_COLUMN_BACKGROUND_COLOR
-	};
-	
-	//Positive Column Headers.
-	protected static String[] allPositiveColumns = {
-			SplaySQLiteHelper.POSITIVE_ID,
-			SplaySQLiteHelper.POSITIVE_TEXT,
-			SplaySQLiteHelper.POSITIVE_BG_COLOR
-	};
-	
-	//Internet Column Headers.
-	protected static String[] allNetColumns = {
-		SplaySQLiteHelper.NET_ID,
-		SplaySQLiteHelper.NET_TEXT,
-		SplaySQLiteHelper.NET_BG_COLOR
-	};
-	
-	//Constructor. 
+	//Constructor.
 	public SplayDBManager(Context context){
 		dbHelper = new SplaySQLiteHelper(context);
 	}
-	
-	//Open connection to messages database.
+
+    /**
+     * Opens a database that will be used for reading and writing.
+     *
+     * @throws SQLException
+     */
 	public void open() throws SQLException {
 		database = dbHelper.getWritableDatabase();
 	}
-	
-	//Close connection to messages database.
+
+    /**
+     * Closes the SQLite database object.
+     */
 	public void close(){
 		database.close();
 	}
 	
 	public Text createMessage(String text, int bgColor){
-		ContentValues values = new ContentValues();
+
+        ContentValues values = new ContentValues();
 		values.put(SplaySQLiteHelper.COLUMN_MESSAGE, text);
 		values.put(SplaySQLiteHelper.COLUMN_BG_COLOR, bgColor);
 		
 		//Get column id
-		long insertId = database.insert(SplaySQLiteHelper.MESSAGES_TABLE, null, values);
+		long insertId = database.insert(
+                SplaySQLiteHelper.MESSAGES_TABLE,
+                null,
+                values);
 
 		//Retrieving the db_row that was created and converting to an object
-		Cursor cursor = database.query(SplaySQLiteHelper.MESSAGES_TABLE, allMessagesColumns, 
-				SplaySQLiteHelper.COLUMN_ID + " = " + insertId, null, null, null, null);
-		cursor.moveToFirst();
-		Text newMessage = cursorToMessage(cursor);
+		Cursor cursor = database.query(
+                SplaySQLiteHelper.MESSAGES_TABLE, allMessagesColumns,
+				SplaySQLiteHelper.COLUMN_ID + " = " + insertId,
+                null,
+                null,
+                null,
+                null);
+
+        cursor.moveToFirst();
+
+        Text newMessage = cursorToMessage(cursor);
 		cursor.close();
-		return newMessage;
+
+        return newMessage;
 	}
-	
+	/*
 	public boolean deleteMessage(int recordNumber){
-        int result = database.delete(SplaySQLiteHelper.MESSAGES_TABLE,
+        int result = database.delete(
+                SplaySQLiteHelper.MESSAGES_TABLE,
                 SplaySQLiteHelper.COLUMN_ID + "=" + recordNumber,
                 null);
-        if(result == 1){
-            return true;
-        }
-        else {
-            return false;
-        }
-	}
-	
-	/*
-	 * Get all records from the Messages table as a ListView<Carta>
-	 */
-	public List<Text> getAllMessages(){
-		List<Text> messages = new ArrayList<Text>();
-		Cursor cursor = database.query(
-				SplaySQLiteHelper.MESSAGES_TABLE, 
-				allMessagesColumns, 
-				null, 
-				null, 
-				null, 
-				null, 
-				null);
-		
-		cursor.moveToFirst();
-		while(!cursor.isAfterLast()){
-			Text message = cursorToMessage(cursor);
-			messages.add(message);
-			cursor.moveToNext();
-		}
-		cursor.close();
-		return messages;
-	}
 
-	/*
+        if(result == 1)
+            return true;
+        else
+            return false;
+   	}*/
+	
+	/**
 	 * Return all records from the Messages table.
+     *
+     * @return A cursor object with a records from the Messages table.
 	 */
 	public Cursor getAllMessagesAsCursor(){
 		String orderBy = allMessagesColumns[0]+" DESC"; 
@@ -128,14 +124,18 @@ public class SplayDBManager {
 		return cursor;
 	}
 	
-	/*
-	 * Helper method that converts a database record into a Carta object.
+	/**
+	 * Converts a database record into a Text object.
+     *
 	 */
 	private Text cursorToMessage(Cursor cursor){
-		Text message = new Text();
-		message.setMessage(cursor.getString(1));
+
+        Text message = new Text();
+
+        message.setMessage(cursor.getString(1));
 		message.setBgColor(cursor.getInt(2));
-		return message;
+
+        return message;
 	}
 
 	public void populateDBTables(){
@@ -164,117 +164,35 @@ public class SplayDBManager {
          */
 
 	}
-	
-	
-	public void createSmile(String image_path, int color){
-		ContentValues values = new ContentValues();
-		values.put(SplaySQLiteHelper.SMILE_COLUMN_IMAGE_PATH, image_path);
-		values.put(SplaySQLiteHelper.SMILE_COLUMN_BACKGROUND_COLOR, color);
-		database.insert(SplaySQLiteHelper.SMILE_TABLE, null, values);		
-	}
-	
-	/*
-	 * Return all records from the Smile table.
-	 */
-	public Cursor getAllSmilesAsCursor(){
-		Cursor cursor = database.query(
-				SplaySQLiteHelper.SMILE_TABLE, 
-				allSmileColumns, 
-				null, 
-				null, 
-				null, 
-				null, 
-				null);
-		
-		cursor.moveToFirst();		
-		return cursor;
-	}
-	
-	/**
-	 * Creates a text entry within the database.
-	 * 
-	 */
-	public void addText(String tableName, String text, int bgColor){
-		//Create object that will be entered into a table.
-		ContentValues values = new ContentValues();
-		
-		if(tableName.equals("positive")){
-			values.put(allPositiveColumns[1], text);
-			values.put(allPositiveColumns[2], bgColor);	
-		} 
-		else if(tableName.equals("internet_slang")){
-			values.put(allNetColumns[1], text);
-			values.put(allNetColumns[2], bgColor);		
-		}
-		
-		database.insert(tableName, null, values);
-	}
-	
-	public Cursor getText(String tableName, String[] columns){
-		Cursor c = database.query(
-				tableName, 
-				columns, 
-				null, 
-				null, 
-				null, 
-				null, 
-				null);
-		c.moveToFirst();
-		return c;
-	}
-	
-	
-	/*
-	 * Return all records from the Messages table.
-	 */
-	public Cursor getAllPositiveAsCursor(){
-		Cursor cursor = database.query(
-				SplaySQLiteHelper.POSITIVE_TABLE, 
-				allPositiveColumns, 
-				null, 
-				null, 
-				null, 
-				null, 
-				null);		
-		cursor.moveToFirst();		
-		return cursor;
-	}
-	
-	/*
-	 * Return all records from the Messages table.
-	 */
-	public Cursor getAllNetAsCursor(){
-		Cursor cursor = database.query(
-				SplaySQLiteHelper.NET_TABLE, 
-				allNetColumns, 
-				null, 
-				null, 
-				null, 
-				null, 
-				null);		
-		cursor.moveToFirst();		
-		return cursor;
-	}
 
+    /**
+     * Retrieves a database record from the messages table.
+     *
+     * @param ID The identifier of the database record to be retrieved.
+     * @return
+     */
     public Cursor getMessageRecord(int ID){
-
+       //Creating the raw query.
        String query = "SELECT * FROM messages WHERE _id =" + ID;
-       Cursor cursor = database.rawQuery(query, null);
-
-       return cursor;
+       return database.rawQuery(query, null);
     }
 
+    /**
+     * Update a database record from the Messages table.
+     *
+     * @param id Unique row identifier.
+     * @param text User supplied string.
+     * @param bgColor The background color represented as an integer.
+     * @return
+     */
     public int updateMessageRecord(int id, String text, int bgColor){
 
-        int rowsaffected;
         String whereClause = "_id = " + id;
 
         ContentValues contentValues = new ContentValues();
         contentValues.put("message", text);
         contentValues.put("bgColor", bgColor);
 
-        rowsaffected = database.update("messages", contentValues, whereClause, null);
-
-        return rowsaffected;
+        return database.update("messages", contentValues, whereClause, null);
     }
 }

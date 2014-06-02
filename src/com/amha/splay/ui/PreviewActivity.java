@@ -1,9 +1,17 @@
 /*
- * Copyright (C) 2013 Amha Mogus
- * 
- * Licensed under my own imagination, for which monetary profit or self-aggrandizement
- * undermine the quality and intention of the authors purpose.
- * 
+ * Copyright (C) 2014 Amha Mogus amha.mogus@gmail.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.amha.splay.ui;
 
@@ -18,7 +26,6 @@ import android.widget.TextView;
 
 import com.amha.splay.R;
 import com.amha.splay.SplayMainActivity;
-import com.amha.splay.TextDisplayViewPager;
 import com.amha.splay.model.SplayDBManager;
 
 /*
@@ -26,11 +33,24 @@ import com.amha.splay.model.SplayDBManager;
  */
 public class PreviewActivity extends Activity {
 
-	private SplayDBManager dbManager;	
-	private String message;	
-	private int userColor;
-	private int textColor;
-	
+    /**
+     * This field should be made private, so it is hidden from the SDK.
+     *
+     */
+	private SplayDBManager dbManager;
+
+    /**
+     * This field should be made private, so it is hidden from the SDK.
+     *
+     */
+    private String message;
+
+    /**
+     * This field should be made private, so it is hidden from the SDK.
+     *
+     */
+    private int userColor;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);	
