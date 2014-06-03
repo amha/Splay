@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_height="70dp"
     android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp"
     android:id="@+id/row_background" android:paddingBottom="10dp" android:paddingLeft="5dp">
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:singleLine="true"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:fontFamily="sans-serif-light"
         android:paddingTop="10dp"
         android:paddingLeft="10dp"

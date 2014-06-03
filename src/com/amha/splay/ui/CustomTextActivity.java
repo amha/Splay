@@ -65,8 +65,8 @@ public class CustomTextActivity extends Activity implements OnFormSubmittedListe
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.new_message, menu);
-		return true;
+		//getMenuInflater().inflate(R.menu.new_message, menu);
+		return false;
 	}	
  
 	public void onFormSubmit(View v){

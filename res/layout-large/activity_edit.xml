@@ -29,8 +29,6 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:id="@+id/redRadioButtonEdit"
-                android:layout_below="@+id/textView"
-                android:layout_alignParentLeft="true"
                 android:button="@null"
                 android:background="@drawable/red_radio"
                 android:checked="true" />
@@ -39,8 +37,6 @@
                 android:id="@+id/blueRadioButtonEdit"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_below="@+id/textView"
-                android:layout_alignParentLeft="true"
                 android:button="@null"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/blue_radio" />
@@ -49,8 +45,6 @@
                 android:id="@+id/yellowRadioButtonEdit"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_below="@+id/textView"
-                android:layout_alignParentLeft="true"
                 android:button="@null"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/yellow_radio" />
@@ -59,8 +53,6 @@
                 android:id="@+id/orangeRadioButtonEdit"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_below="@+id/textView"
-                android:layout_alignParentLeft="true"
                 android:button="@null"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/orange_radio" />
@@ -69,19 +61,11 @@
                 android:id="@+id/greenRadioButtonEdit"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_below="@+id/textView"
-                android:layout_alignParentLeft="true"
                 android:button="@null"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/green_radio" />
 
     </RadioGroup>
-
-    <!--<Spinner
-            android:id="@+id/editColorSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/editBgValue"/>-->
 
     <TextView
             android:id="@+id/formHeaderText"

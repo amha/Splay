@@ -16,7 +16,7 @@
     <string name="splay">Just \'Splay It</string>
 
     <!-- CreateMessageActivity -->
-    <string name="title_activity_new_message">Step 1: Make A s\'Splay</string>
+    <string name="title_activity_new_message">Make A \'Splay</string>
     <string name="first_question">Message:</string>
     <string name="hint">To Be Or Not To Be</string>
     <string name="second_question">Pick a Color:</string>

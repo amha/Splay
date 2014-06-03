@@ -63,7 +63,7 @@ public class TextCursorAdapter extends CursorAdapter {
 	
 	@Override
 	public View newView(Context context, Cursor cursor, ViewGroup parent){	
-		return inflater.inflate(R.layout.carta_row, parent, false);
+		return inflater.inflate(R.layout.splay_row, parent, false);
 		//return v;
 	}
 	
