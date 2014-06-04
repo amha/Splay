@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.amha.splay"
-    android:versionCode="1"
-    android:versionName="0.1" >
+    android:versionCode="3"
+    android:versionName="0.3 Beta" >
 
     <uses-sdk
         android:minSdkVersion="16"
@@ -23,16 +23,18 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name="com.amha.splay.ui.CustomTextActivity"
             android:label="@string/title_activity_new_message"
             android:theme="@android:style/Theme.Holo.Light"
-            android:windowSoftInputMode="stateVisible"
-            android:screenOrientation="portrait">
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+                android:noHistory="true">
         </activity>
         <activity
             android:name="com.amha.splay.ui.PreviewActivity"
@@ -51,7 +53,6 @@
         <activity
             android:name=".ui.TextDisplayViewPager"
             android:label="@string/title_activity_text_display_view_pager"
-            android:launchMode="singleTop"
             android:parentActivityName="com.amha.splay.SplayMainActivity" >
         </activity>
         <activity
@@ -59,6 +60,7 @@
             android:label="@string/title_activity_edit"
             android:noHistory="true"
             android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustResize"
             android:theme="@android:style/Theme.Holo.Light" >
         </activity>
         <activity
@@ -69,5 +71,4 @@
             android:parentActivityName="com.amha.splay.SplayMainActivity" >
         </activity>
     </application>
-
 </manifest>

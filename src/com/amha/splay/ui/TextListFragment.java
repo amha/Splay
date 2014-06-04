@@ -35,16 +35,22 @@ public class TextListFragment extends ListFragment {
      */
     private SplayDBManager dbManager;
 
-	@Override
+    /**
+     * This field should be made private, so it is hidden from the SDK.
+     *
+     */
+    private Cursor cursor;
+
+    @Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, 
 			Bundle savedInstanceState){
 
 		dbManager = new SplayDBManager(getActivity());
         dbManager.open();
 
-		Cursor cursor = dbManager.getAllMessagesAsCursor();
-		TextCursorAdapter adapter = null;
+		cursor = dbManager.getAllMessagesAsCursor();
 
+        TextCursorAdapter adapter = null;
 		ListView listUI = (ListView)inflater.inflate(
                 R.layout.fragment_carta_list,
                 container,
@@ -56,8 +62,10 @@ public class TextListFragment extends ListFragment {
                 0);
 
     	listUI.setAdapter(adapter);
+
         return listUI;
 	}
+
 	@Override
 	public void onListItemClick (ListView l, View v, int position, long id){
 

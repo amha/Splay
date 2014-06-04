@@ -18,6 +18,7 @@ package com.amha.splay;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -101,6 +102,19 @@ public class SplayMainActivity extends FragmentActivity{
                 startActivity(mIntent);
                 return true;
 
+            case R.id.action_feedback:
+
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+
+                intent.setData(Uri.parse("mailto:amha.mogus@gmail.com"));
+                intent.putExtra(Intent.EXTRA_EMAIL, "amha.mogus@gmail.com");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "'Splay It v0.3 - Feedback");
+
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+                return true;
+
             default:
     			//TODO: Add other application actions.
     			//return true;
@@ -176,12 +190,12 @@ public class SplayMainActivity extends FragmentActivity{
             //Check shared preferences if this is the first time running the app.
             if(!pref.getBoolean("firstTime", false)) {
 		        dbManager.populateDBTables();
-
+                dbManager.close();
                 //Database created, never run this code again.
 		        SharedPreferences.Editor editor = pref.edit();
 		        editor.putBoolean("firstTime", true);
 		        editor.commit();
-		    }
+            }
             return null;
 	    }
     }

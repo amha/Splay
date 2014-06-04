@@ -8,19 +8,105 @@
 
     <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="About 'Splay It"
+            android:text="@string/about_title"
             android:textStyle="bold"
-            android:textSize="20sp"/>
-
+            android:textSize="14sp"
+            android:textColor="@color/dark_grey"
+            android:textIsSelectable="false"/>
+<!--
     <TextView
             android:id="@+id/about_intro"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/about_message"
-            android:textColor="#4f4f4f"
+            android:text="@string/about_section_what"
+            android:textColor="#000000"
             android:textSize="20sp"
-            android:fontFamily="sans-serif-light"
-            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif"
+            android:layout_marginTop="5dp"
+            android:lineSpacingMultiplier="1.3"
+            android:gravity="center_vertical"/>
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_section_what_desc"
+            android:textColor="@color/dark_grey"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-light"/>
+-->
+
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:text="@string/review_section_what"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif"
+            android:layout_marginTop="5dp"
+            android:lineSpacingMultiplier="1.3"
+            android:clickable="true"
+            android:id="@+id/review_link"
+            android:onClick="clickHandler"/>
+
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:text="@string/feedback_section"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif"
+            android:layout_marginTop="5dp"
+            android:lineSpacingMultiplier="1.3"
+            android:id="@+id/feedback_link"
+            android:clickable="true"
+            android:onClick="clickHandler"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:paddingTop="10dp"
+              android:text="@string/developer_title"
+              android:textStyle="bold"
+              android:textSize="14sp"
+              android:textColor="@color/dark_grey"
+              android:textIsSelectable="false" android:layout_marginTop="10dp"/>
+
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:text="@string/developer_name"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif"
+            android:layout_marginTop="5dp"
             android:lineSpacingMultiplier="1.3"/>
+
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/developer_name_desc"
+            android:textColor="@color/dark_grey"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-light"/>
+
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:text="@string/developer_version"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif"
+            android:layout_marginTop="5dp"
+            android:lineSpacingMultiplier="1.3"/>
+
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/developer_version_desc"
+            android:textColor="@color/dark_grey"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-light"/>
 
 </LinearLayout>

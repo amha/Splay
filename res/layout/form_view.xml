@@ -28,8 +28,6 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:id="@+id/redRadioButton"
-                android:layout_below="@+id/textView"
-                android:layout_alignParentLeft="true"
                 android:button="@null"
                 android:background="@drawable/red_radio"
                 android:checked="true" />
@@ -38,8 +36,6 @@
                 android:id="@+id/blueRadioButton"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_below="@+id/textView"
-                android:layout_alignParentLeft="true"
                 android:button="@null"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/blue_radio" />
@@ -48,8 +44,6 @@
                 android:id="@+id/yellowRadioButton"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_below="@+id/textView"
-                android:layout_alignParentLeft="true"
                 android:button="@null"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/yellow_radio" />
@@ -58,8 +52,6 @@
                 android:id="@+id/orangeRadioButton"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_below="@+id/textView"
-                android:layout_alignParentLeft="true"
                 android:button="@null"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/orange_radio" />
@@ -68,8 +60,6 @@
                 android:id="@+id/greenRadioButton"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_below="@+id/textView"
-                android:layout_alignParentLeft="true"
                 android:button="@null"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/green_radio" />
