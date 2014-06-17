@@ -15,8 +15,6 @@
  */
 package com.amha.splay.ui;
 
-import com.amha.splay.R;
-
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
@@ -25,11 +23,10 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
+import com.amha.splay.R;
 
 public class TextDisplayActivity extends Activity {
 
@@ -54,23 +51,31 @@ public class TextDisplayActivity extends Activity {
 		//Set Background Color
 		RelativeLayout layout = new RelativeLayout(this);
 		layout.setBackgroundColor(userColor);
-		
-		//Format Message
-		TextView mTextView = new TextView(this);
-		LayoutParams params = new RelativeLayout.LayoutParams(
+
+        //Format Message
+        TextView mTextView = new TextView(this);
+
+        //Custom Typeface
+        Typeface mType = Typeface.createFromAsset(
+                getAssets(),
+                "fonts/feasfbrg.ttf");
+
+        mTextView.setTypeface(mType);
+
+        LayoutParams params = new RelativeLayout.LayoutParams(
 				RelativeLayout.LayoutParams.MATCH_PARENT,
 				RelativeLayout.LayoutParams.MATCH_PARENT);
 		mTextView.setLayoutParams(params);
 		mTextView.setPadding(10, 5, 10, 5);
 		mTextView.setText(message);
-		mTextView.setTextSize(60);
-		mTextView.setTypeface(Typeface.SANS_SERIF);
+		mTextView.setTextSize(90);
 		mTextView.setTextColor(Color.WHITE);
-		mTextView.setShadowLayer(1, 1, 1, Color.BLACK);
+		//mTextView.setShadowLayer(1, 1, 1, Color.BLACK);
 		
 		mTextView.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);		
 				
 		mTextView.setClickable(true);
+        /*
 		mTextView.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v){				
@@ -82,8 +87,9 @@ public class TextDisplayActivity extends Activity {
 					aBar.show();
 				}
 			}
-		});		
-		layout.addView(mTextView);		
+		});	*/
+		layout.addView(mTextView);
+
 		setContentView(layout);
 	}
 				
