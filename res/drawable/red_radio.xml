@@ -4,7 +4,7 @@
     <!-- Enabled and not selected. -->
     <item android:state_pressed="false" android:state_checked="false">
         <shape android:shape="oval">
-            <solid android:color="#ffd73232"/>
+            <solid android:color="#ffF44336"/>
         </shape>
     </item>
 

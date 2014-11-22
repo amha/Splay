@@ -19,6 +19,8 @@
         android:ellipsize="none"
         android:maxLines="6"
         android:textSize="60sp"
-        android:autoText="false" android:gravity="center_vertical|left"/>
+        android:autoText="false"
+        android:gravity="center_vertical"
+        android:fontFamily="sans-serif-light" />
 
 </RelativeLayout>

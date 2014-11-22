@@ -60,19 +60,19 @@ public class NewSplayActivity extends Activity {
 		int bgColor = 0;		
 		switch (mRadio.getId()){
 			case R.id.blue:
-				bgColor = 0xff75a3ff;
+				bgColor = 0xff2196F3;
 				break;
 			case R.id.orange:
-				bgColor = 0xffeda321;
+				bgColor = 0xffFF9800;
 				break;
 			case R.id.yellow:
-				bgColor = 0xffd2ea32;
+				bgColor = 0xffFFEB3B;
 				break;
 			case R.id.red:
-				bgColor = 0xffd73232;
+				bgColor = 0xffF44336;
 				break;
 			case R.id.green:
-				bgColor = 0xff23d36d;
+				bgColor = 0xff4CAF50;
 		}
 		
 		//Add user entered data to an Intent and then start the Preview Activity.

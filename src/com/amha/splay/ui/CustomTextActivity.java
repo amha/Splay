@@ -124,19 +124,19 @@ public class CustomTextActivity extends Activity implements OnFormSubmittedListe
     public static int convertBGColor(String color){
 
         if(color.equals("Blue")){
-            return 0xff75a3ff;
+            return 0xff2196F3;
         }
         else if(color.equals("Orange")){
-            return 0xffeda321;
+            return 0xffFF9800;
         }
         else if(color.equals("Red")){
-            return 0xffd73232;
+            return 0xffF44336;
         }
         else if(color.equals("Yellow")){
-            return 0xffd2ea32;
+            return 0xffFFEB3B;
         }
         else if(color.equals("Green")){
-            return 0xff23d36d;
+            return 0xff4CAF50;
         }
         else if(color.equals("Black")){
             return 0xff000000;

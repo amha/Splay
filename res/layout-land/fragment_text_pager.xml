@@ -18,7 +18,8 @@
         android:layout_centerHorizontal="true"
         android:ellipsize="none"
         android:maxLines="6"
-        android:textSize="90sp"
-        android:autoText="false" android:gravity="center_vertical|center_horizontal"/>
+        android:textSize="75sp"
+        android:autoText="false" android:gravity="center_vertical|center_horizontal"
+        android:fontFamily="sans-serif-light" />
 
 </RelativeLayout>

@@ -108,7 +108,7 @@ public class SplayMainActivity extends FragmentActivity{
 
                 intent.setData(Uri.parse("mailto:amha.mogus@gmail.com"));
                 intent.putExtra(Intent.EXTRA_EMAIL, "amha.mogus@gmail.com");
-                intent.putExtra(Intent.EXTRA_SUBJECT, "'Splay It v0.3 - Feedback");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "'Splay It v0.5 - Feedback");
 
                 if (intent.resolveActivity(getPackageManager()) != null) {
                     startActivity(intent);

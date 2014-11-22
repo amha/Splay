@@ -119,19 +119,19 @@ public class EditActivity extends Activity {
     private int bgColorAsString(int color) {
         int radioID = 0;
         switch (color){
-            case 0xff75a3ff:    //Blue
+            case 0xff2196F3:    // Blue
                 radioID = R.id.blueRadioButtonEdit;
                 break;
-            case 0xff23d36d:    //Green
+            case 0xff4CAF50:    // Green
                 radioID = R.id.greenRadioButtonEdit;
                 break;
-            case 0xffeda321:    //Orange
+            case 0xffFF9800:    // Orange
                 radioID = R.id.orangeRadioButtonEdit;
                 break;
-            case 0xffd73232:    //Red
+            case 0xffF44336:    // Red
                 radioID = R.id.redRadioButtonEdit;
                 break;
-            case 0xffd2ea32:    //Yellow
+            case 0xffFFEB3B:    // Yellow
                 radioID = R.id.yellowRadioButtonEdit;
                 break;
         }
@@ -142,15 +142,15 @@ public class EditActivity extends Activity {
 
         switch (color){
             case R.id.blueRadioButtonEdit:
-                return 0xff75a3ff;
+                return 0xff2196F3;
             case R.id.orangeRadioButtonEdit:
-                return 0xffeda321;
+                return 0xffFF9800;
             case R.id.redRadioButtonEdit:
-                return 0xffd73232;
+                return 0xffF44336;
             case R.id.yellowRadioButtonEdit:
-                return 0xffd2ea32;
+                return 0xffFFEB3B;
             case R.id.greenRadioButtonEdit:
-                return 0xff23d36d;
+                return 0xff4CAF50;
             default:
                 return 0xffffffff;
         }
