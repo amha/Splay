@@ -80,7 +80,7 @@
     <!-- About Activity -->
     <string name="about_title">General</string>
     <string name="about_section_what">What\'s \'Splay?</string>
-    <string name="about_section_what_desc">\'Splay - short for display - lets you...</string>
+    <string name="about_section_what_desc">\'Splay - Short for display.</string>
 
     <string name="review_section_what">Review \'Splay</string>
     <string name="feedback_section">Provide Feedback</string>
@@ -91,4 +91,7 @@
 
     <string name="developer_version">Version</string>
     <string name="developer_version_desc">\'Splay It - 0.3</string>
+
+    <string name="about_app">About this app</string>
+    <string name="edit">Edit</string>
 </resources>

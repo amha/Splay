@@ -34,9 +34,7 @@ import com.amha.splay.model.SplayDBManager;
  */
 public class TextDisplayViewPager extends FragmentActivity {
 
-	private CursorPageAdapter mPageAdapter;
-	private SplayDBManager dbManager;
-    private ViewPager mPager;
+	private ViewPager mPager;
     private Cursor mCursor;
 
 	@Override
@@ -48,11 +46,11 @@ public class TextDisplayViewPager extends FragmentActivity {
         Intent mIntent = getIntent();
         int selectedItem = mIntent.getIntExtra("SELECTED_LIST_ITEM", -1);
 
-        dbManager = new SplayDBManager(getApplicationContext());
+        SplayDBManager dbManager = new SplayDBManager(getApplicationContext());
         dbManager.open();
 
         mCursor = dbManager.getAllMessagesAsCursor();
-        mPageAdapter = new CursorPageAdapter(
+        CursorPageAdapter mPageAdapter = new CursorPageAdapter(
                 getSupportFragmentManager(),
                 TextPagerFragment.class,
                 mCursor);

@@ -28,12 +28,8 @@ public class PreviewFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	        Bundle savedInstanceState){
-	
-		View v = inflater.inflate(R.layout.activity_preview, container, false);
-		
-		//TODO: Get form details and update UI
-		
-		return v;
+
+        return inflater.inflate(R.layout.activity_preview, container, false);
 	}
 
 }

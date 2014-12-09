@@ -35,12 +35,6 @@ import com.amha.splay.ui.FormFragment.OnFormSubmittedListener;
  */
 public class CustomTextActivity extends Activity implements OnFormSubmittedListener {
 
-    /**
-     * This field should be made private, so it is hidden from the SDK.
-     *
-     */
-    private SplayDBManager dbManager;
-
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -108,6 +102,7 @@ public class CustomTextActivity extends Activity implements OnFormSubmittedListe
      * @param color Background color derived from radio button selection.
      */
     public void saveMessage(String message, String color){
+        SplayDBManager dbManager;
         dbManager = new SplayDBManager(this);
         dbManager.open();
         dbManager.createMessage(message, convertBGColor(color));

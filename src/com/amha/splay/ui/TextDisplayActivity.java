@@ -30,10 +30,6 @@ import com.amha.splay.R;
 
 public class TextDisplayActivity extends Activity {
 
-	//private SplayDBManager dbManager;	
-	private String message;	
-	private int userColor;
-
     ActionBar aBar;
 
 	@Override
@@ -45,8 +41,8 @@ public class TextDisplayActivity extends Activity {
 		
 		//Get Message and Color values
 		Intent intent = getIntent();
-		message = intent.getStringExtra("userSelection");
-		userColor = intent.getIntExtra("color", 0xffffffff);
+		String message = intent.getStringExtra("userSelection");
+		int userColor = intent.getIntExtra("color", 0xffffffff);
 		
 		//Set Background Color
 		RelativeLayout layout = new RelativeLayout(this);

@@ -28,7 +28,6 @@ public class TempFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflator, ViewGroup container, Bundle savedInstanceState){
 	
-		View v = inflator.inflate(R.layout.temp, container, false);
-		return v;
+		return inflator.inflate(R.layout.temp, container, false);
 	}
 }

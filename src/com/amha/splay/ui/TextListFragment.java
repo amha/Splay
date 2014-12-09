@@ -29,26 +29,14 @@ import com.amha.splay.model.TextCursorAdapter;
 
 public class TextListFragment extends ListFragment {
 
-    /**
-     * This field should be made private, so it is hidden from the SDK.
-     *
-     */
-    private SplayDBManager dbManager;
-
-    /**
-     * This field should be made private, so it is hidden from the SDK.
-     *
-     */
-    private Cursor cursor;
-
     @Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, 
 			Bundle savedInstanceState){
 
-		dbManager = new SplayDBManager(getActivity());
+        SplayDBManager dbManager = new SplayDBManager(getActivity());
         dbManager.open();
 
-		cursor = dbManager.getAllMessagesAsCursor();
+        Cursor cursor = dbManager.getAllMessagesAsCursor();
 
         TextCursorAdapter adapter = null;
 		ListView listUI = (ListView)inflater.inflate(

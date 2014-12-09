@@ -37,12 +37,6 @@ public class PreviewActivity extends Activity {
      * This field should be made private, so it is hidden from the SDK.
      *
      */
-	private SplayDBManager dbManager;
-
-    /**
-     * This field should be made private, so it is hidden from the SDK.
-     *
-     */
     private String message;
 
     /**
@@ -53,7 +47,7 @@ public class PreviewActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);	
+		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_preview);
 
 		//Get Message and Color values
@@ -95,6 +89,7 @@ public class PreviewActivity extends Activity {
      *
 	 */
 	public void saveMessage(View v){
+        SplayDBManager dbManager;
 		dbManager = new SplayDBManager(this);
         dbManager.open();
         dbManager.createMessage(message, userColor);
