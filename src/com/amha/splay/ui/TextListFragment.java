@@ -38,13 +38,12 @@ public class TextListFragment extends ListFragment {
 
         Cursor cursor = dbManager.getAllMessagesAsCursor();
 
-        TextCursorAdapter adapter = null;
 		ListView listUI = (ListView)inflater.inflate(
                 R.layout.fragment_carta_list,
                 container,
                 false);
 
-	    adapter = new TextCursorAdapter(
+        TextCursorAdapter adapter = new TextCursorAdapter(
                 getActivity().getApplicationContext(),
                 cursor,
                 0);

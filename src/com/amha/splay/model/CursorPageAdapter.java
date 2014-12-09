@@ -38,7 +38,7 @@ public class CursorPageAdapter<F extends Fragment> extends FragmentPagerAdapter 
      * This field should be made private, so it is hidden from the SDK.
      *
      */
-    private Cursor mCursor;
+    private final Cursor mCursor;
 
 	public CursorPageAdapter(FragmentManager fm,
                              Class<TextPagerFragment> fragment,

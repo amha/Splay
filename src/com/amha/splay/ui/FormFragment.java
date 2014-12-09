@@ -15,7 +15,6 @@
  */
 package com.amha.splay.ui;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -43,18 +42,6 @@ public class FormFragment extends Fragment {
         //Initialize radio group
         mGroup = (RadioGroup)v.findViewById(R.id.radioGroup);
 		return v;
-	}
-
-	@Override
-	public void onAttach(Activity activity){
-		super.onAttach(activity);
-		try{
-            OnFormSubmittedListener formListner = (OnFormSubmittedListener)activity;
-
-        }catch (ClassCastException e){
-            throw new ClassCastException(
-                    activity.toString() + "needs to implement OnFormListener interface.");
-		}
 	}
 
 	public String[] getFormData(){

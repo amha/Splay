@@ -115,25 +115,19 @@ public class PreviewActivity extends Activity {
      *
 	 */
 	public static int convertBGColor(String color){
-		
-		if(color.equals("Blue")){
-			return 0xff75a3ff;
-		}
-		else if(color.equals("Orange")){
-			return 0xffeda321;
-		}
-		else if(color.equals("Red")){
-			return 0xffd73232;
-		}
-		else if(color.equals("Yellow")){
-			return 0xffd2ea32;
-		}
-		else if(color.equals("Green")){
-			return 0xff23d36d;
-		}
-		else if(color.equals("Black")){
-			return 0xff000000;
-		}
-		return 0xffffffff;
+        switch (color){
+            case "Blue":
+                return 0xff75a3ff;
+            case "Orange":
+                return 0xffeda321;
+            case "Red":
+                return 0xffd73232;
+            case "Yellow":
+                return 0xffd2ea32;
+            case "Green":
+                return 0xff23d36d;
+            default:
+                return 0xffffffff;
+        }
 	}
 }

@@ -16,7 +16,6 @@
 package com.amha.splay.ui;
 
 import android.app.ActionBar;
-import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -56,15 +55,7 @@ public class TextPagerFragment extends Fragment {
 			mText.setText("Not passing args to TextPagerFragment.");
 		}
 
-        //Custom Typeface
-//        Typeface mType = Typeface.createFromAsset(
-//                getActivity().getAssets(),
-//                "fonts/anudrg.ttf");
-//        mText.setTypeface(mType);
-
-
         switch (Build.VERSION.SDK_INT){
-
             case 19:
                 //Enable Immersive Mode for KitKat
                 getActivity().getWindow().getDecorView().setSystemUiVisibility(
@@ -76,12 +67,11 @@ public class TextPagerFragment extends Fragment {
                             | View.SYSTEM_UI_FLAG_IMMERSIVE);
             break;
 
-            case 15:case 16:case 17:case 18:
+            case 16:case 17:case 18:
                 //Hide action bar for Jelly Bean
                 mText.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //TODO: ...
                     if(actionBar.isShowing()){
                         actionBar.hide();
                     }

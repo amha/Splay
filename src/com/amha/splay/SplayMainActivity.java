@@ -71,7 +71,7 @@ public class SplayMainActivity extends FragmentActivity{
      * Respond to user selections from the overflow menu.
      *
      * @param item The Menu Item selected.
-     * @return
+     * @return Return false to allow normal menu processing to proceed, true to consume it here.
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
@@ -114,7 +114,7 @@ public class SplayMainActivity extends FragmentActivity{
     /**
      * Loads fragment based on navigation panel selection.
      *
-     * @param position
+     * @param position The index fo the selected splay message.
      */
     private void selectItem(int position) {
 
@@ -163,8 +163,8 @@ public class SplayMainActivity extends FragmentActivity{
      */
     private class CreateDatabases extends AsyncTask<Void, Void, Void> {
     		
-    	protected Context context;
-    	private SplayDBManager dbManager;
+    	protected final Context context;
+    	private final SplayDBManager dbManager;
     			
 		public CreateDatabases(Context c, SplayDBManager db){
 			this.context = c;
@@ -179,12 +179,12 @@ public class SplayMainActivity extends FragmentActivity{
 
             //Check shared preferences if this is the first time running the app.
             if(!pref.getBoolean("firstTime", false)) {
-		        dbManager.populateDBTables();
-                dbManager.close();
+		        dbManager.close();
+
                 //Database created, never run this code again.
 		        SharedPreferences.Editor editor = pref.edit();
-		        editor.putBoolean("firstTime", true);
-		        editor.commit();
+		        editor.putBoolean("firstTime", true).apply();
+
             }
             return null;
 	    }

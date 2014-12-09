@@ -33,10 +33,10 @@ public class SplayDBManager {
      * This field should be made private, so it is hidden from the SDK.
      *
      */
-    private SplaySQLiteHelper dbHelper;
+    private final SplaySQLiteHelper dbHelper;
 	
 	//Message Column Headers.
-	protected static String[] allMessagesColumns = { 
+	protected static final String[] allMessagesColumns = {
 			SplaySQLiteHelper.COLUMN_ID, 
 			SplaySQLiteHelper.COLUMN_MESSAGE,
 			SplaySQLiteHelper.COLUMN_BG_COLOR 
@@ -138,38 +138,11 @@ public class SplayDBManager {
         return message;
 	}
 
-	public void populateDBTables(){
-		
-		/**
-		createSmile("happy", Color.GREEN);
-		createSmile("silly", Color.GREEN);
-		createSmile("neutral", Color.GREEN);
-		createSmile("sour", Color.CYAN);
-		createSmile("sad", Color.MAGENTA);
-		createSmile("random", Color.YELLOW);
-
-		
-		addText(SplaySQLiteHelper.POSITIVE_TABLE, "Good Vibes Only", 0xfff62b19);
-		addText(SplaySQLiteHelper.POSITIVE_TABLE, "Never Give Up", 0xfff62b19);
-		addText(SplaySQLiteHelper.POSITIVE_TABLE, "Think Positive", 0xfff62b19);
-		addText(SplaySQLiteHelper.POSITIVE_TABLE, "You're Awesome", 0xfff62b19);
-		addText(SplaySQLiteHelper.POSITIVE_TABLE, "Thank You", 0xfff62b19);
-		addText(SplaySQLiteHelper.POSITIVE_TABLE, "Keep Going", 0xfff62b19);
-
-		addText(SplaySQLiteHelper.MESSAGES_TABLE, "=)", 0xff288df6);
-		addText(SplaySQLiteHelper.MESSAGES_TABLE, "=(", 0xff288df6);
-		addText(SplaySQLiteHelper.MESSAGES_TABLE, ";-)", 0xff288df6);
-		addText(SplaySQLiteHelper.MESSAGES_TABLE, "8-]", 0xff288df6);
-		addText(SplaySQLiteHelper.MESSAGES_TABLE, "=P", 0xff288df6);
-         */
-
-	}
-
     /**
      * Retrieves a database record from the messages table.
      *
      * @param ID The identifier of the database record to be retrieved.
-     * @return
+     * @return The unique database record for a given ID.
      */
     public Cursor getMessageRecord(int ID){
        //Creating the raw query.
@@ -183,7 +156,7 @@ public class SplayDBManager {
      * @param id Unique row identifier.
      * @param text User supplied string.
      * @param bgColor The background color represented as an integer.
-     * @return
+     * @return The number of rows that were updated.
      */
     public int updateMessageRecord(int id, String text, int bgColor){
 

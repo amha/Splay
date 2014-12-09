@@ -33,7 +33,7 @@ import java.util.Locale;
  */
 public class TextCursorAdapter extends CursorAdapter {
 
-	private LayoutInflater inflater;
+	private final LayoutInflater inflater;
 	
 	public TextCursorAdapter(Context context, Cursor cursor, int flags){
 		super(context, cursor, flags);		
